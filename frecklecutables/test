@@ -1,0 +1,5 @@
+---
+doc:
+  help: "use case for freckles!"
+tasks:
+  - powo.test
