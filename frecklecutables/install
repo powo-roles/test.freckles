@@ -2,4 +2,4 @@
 doc:
   help: "use case for freckles!"
 tasks:
-  - powo.utils
+  - powo.test
