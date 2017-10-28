@@ -1,0 +1,3 @@
+[submodule "powo.utils"]
+	path = powo.utils
+	url = git@github.com:powo-roles/powo.utils.git
