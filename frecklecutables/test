@@ -9,6 +9,7 @@ tasks:
       # result: "hello world" OK
       test_message: hello world
   - powo.test:
+      # result: "" / expecter argument
       test_message: "{{ arg_var }}"
   - powo.test:
       # result: "" / expected "hello world"
