@@ -2,3 +2,5 @@
 
 - debug:
     msg: "{{ test_message }}"
+  vars:
+    hello: world

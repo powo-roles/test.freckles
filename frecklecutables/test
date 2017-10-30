@@ -68,6 +68,9 @@ tasks:
   # 12. OK
   - powo.test:
       test_message: "{{ item4 }}"
+  # 13. fails
+  #- powo.test:
+  #    test_message: "{{ item5 }}"
 vars:
   titi: hello world
   listing1:
@@ -91,3 +94,5 @@ defaults:
   toto: hello world
   item2: hello world 2
   item4: "{{ lookup('env', 'USER') }}"
+  item5: "{{ item6 }}"
+  item6: "test"
