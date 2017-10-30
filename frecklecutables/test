@@ -62,6 +62,12 @@ tasks:
       task-type: ansible-role
     vars:
       test_message: "{{ listing3 }}"
+  # 11. lookup is not defined
+  #- powo.test:
+  #    test_message: "{{ lookup('env', 'USER') | default('test') }}"
+  # 12. OK
+  - powo.test:
+      test_message: "{{ item4 }}"
 vars:
   titi: hello world
   listing1:
@@ -80,6 +86,8 @@ vars:
     - "{{ listing3 }}"
     - "{{ titi }}"
     - "{{ toto | default('toto not found') }}"
+    - "{{ lookup('env', 'USER') }}"
 defaults:
   toto: hello world
   item2: hello world 2
+  item4: "{{ lookup('env', 'USER') }}"
