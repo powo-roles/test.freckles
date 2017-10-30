@@ -4,28 +4,44 @@ doc:
 args:
   arg_var:
     required: true
+    is_var: false
+  arg_var2:
+    required: true
+    is_var: true
 tasks:
+  # 1.
   - powo.test:
       # result: "hello world" OK
       test_message: hello world
+  # 2.
   - powo.test:
-      # result: "" / expecter argument
+      # result: OK
       test_message: "{{ arg_var }}"
+  # 2.bis
+  - powo.test:
+      # result: "" / expected argument
+      test_message: "{{ arg_var2 }}"
+  # 3.
   - powo.test:
       # result: "" / expected "hello world"
       test_message: "{{ titi }}"
+  # 4.
   - powo.test:
       # result: "hello world" OK
       test_message: "{{ toto }}"
+  # 5.
   - powo.test:
       # result: "" / expected hello world 1, hello world 2
       test_message: "{{ listing1 | join(', ') }}"
+  # 6.
   - powo.test:
       # result: "" / expected hello world 1, hello world 2
       test_message: "{{ listing2 | join(', ') }}"
+  # 7.
   - powo.test:
       # result: "" / expected ?
       test_message: "{{ listing3 }}"
+  # 8.
   # result: all vars referenced by test_message are found,
   # except toto from defaults vars
   - powo.test
@@ -33,10 +49,12 @@ tasks:
       # result ""
       vars:
         test_message: "{{ listing3 }}"
+  # 9.
   - powo.test:
       # result "hello world 1"
       vars:
         test_message: hello world 1
+  # 10.
   - meta:
       # result ""
       name: powo.test
