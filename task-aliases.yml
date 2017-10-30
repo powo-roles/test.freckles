@@ -1,0 +1,7 @@
+tasks:
+  - powo.test:
+      meta:
+        task-desc: powo.test
+        task-type: ansible-role
+        task-name: powo.test
+

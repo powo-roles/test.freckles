@@ -1,5 +1,66 @@
 ---
 doc:
   help: "use case for freckles!"
+args:
+  arg_var:
+    required: true
 tasks:
+  - powo.test:
+      # result: "hello world" OK
+      test_message: hello world
+  - powo.test:
+      test_message: "{{ arg_var }}"
+  - powo.test:
+      # result: "" / expected "hello world"
+      test_message: "{{ titi }}"
+  - powo.test:
+      # result: "hello world" OK
+      test_message: "{{ toto }}"
+  - powo.test:
+      # result: "" / expected hello world 1, hello world 2
+      test_message: "{{ listing1 | join(', ') }}"
+  - powo.test:
+      # result: "" / expected hello world 1, hello world 2
+      test_message: "{{ listing2 | join(', ') }}"
+  - powo.test:
+      # result: "" / expected ?
+      test_message: "{{ listing3 }}"
+  # result: all vars referenced by test_message are found,
+  # except toto from defaults vars
   - powo.test
+  - powo.test:
+      # result ""
+      vars:
+        test_message: "{{ listing3 }}"
+  - powo.test:
+      # result "hello world 1"
+      vars:
+        test_message: hello world 1
+  - meta:
+      # result ""
+      name: powo.test
+      task-name: powo.test
+      task-type: ansible-role
+    vars:
+      test_message: "{{ listing3 }}"
+vars:
+  titi: hello world
+  listing1:
+    - hello world 1
+    - hello world 2
+  listing2:
+    - "{{ item1 }}"
+    - "{{ item2 }}"
+  listing3:
+    - "{{ item3 }}"
+  item1: hello world 1
+  item3:
+    key: value
+  test_message:
+    - "{{ listing1 }}"
+    - "{{ listing3 }}"
+    - "{{ titi }}"
+    - "{{ toto | default('toto not found') }}"
+defaults:
+  toto: hello world
+  item2: hello world 2
