@@ -1,0 +1,7 @@
+---
+
+- name: task name and frecklecute name
+  debug:
+    msg: "{{ hello }}"
+  vars:
+    hello: world

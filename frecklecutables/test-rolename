@@ -1,0 +1,5 @@
+---
+doc:
+  help: "command name test-case for freckles!"
+tasks:
+  - rolename
