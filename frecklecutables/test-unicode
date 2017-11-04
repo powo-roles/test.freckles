@@ -1,0 +1,5 @@
+---
+doc:
+  help: "unicode test-case for freckles!"
+tasks:
+  - unicode

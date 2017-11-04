@@ -1,0 +1,7 @@
+---
+
+- name: task name with an unicode · char
+  debug:
+    msg: "{{ test_message }}"
+  vars:
+    hello: world

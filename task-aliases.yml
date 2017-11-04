@@ -4,4 +4,8 @@ tasks:
         task-desc: powo.test
         task-type: ansible-role
         task-name: powo.test
-
+  - unicode:
+      meta:
+        task-desc: unicode
+        task-type: ansible-role
+        task-name: unicode
