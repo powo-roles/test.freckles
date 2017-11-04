@@ -2,6 +2,6 @@
 
 - name: task name with an unicode · char
   debug:
-    msg: "{{ test_message }}"
+    msg: "{{ hello }}"
   vars:
     hello: world
