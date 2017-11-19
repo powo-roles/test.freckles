@@ -1,0 +1,8 @@
+---
+doc:
+  help: "use case for non-string msg"
+tasks:
+  - powo.test:
+      test_message:
+        - key: key1
+          value: value1
