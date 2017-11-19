@@ -1,0 +1,9 @@
+---
+doc:
+  help: "use case for non-string msg"
+tasks:
+  - powo.test:
+      test_message: "{{ var1 }}"
+vars:
+  var1: "{{ var2 }}"
+  var2: hello world
